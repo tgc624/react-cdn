@@ -1,0 +1,55 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+<!-- @see https://ja.reactjs.org/docs/cdn-links.html -->
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+<script type="text/babel">
+  const { useState } = React;
+
+  const App = () => {
+    const [体重kg, set体重] = useState(0);
+    const [身長cm, set身長] = useState(0);
+    const 身長m = 身長cm / 100;
+    const BMI = 体重kg / (身長m ** 2);
+    return (
+      <div>
+        <div>
+          <label>身長cm
+            <input
+              type="number"
+              value={身長cm}
+              onChange={(event) => {
+                set身長(event.target.value);
+              }}
+            ></input>
+          </label>
+        </div>
+        <div>
+          <label>体重kg
+            <input
+              type="number"
+              value={体重kg}
+              onChange={(event) => {
+                set体重(event.target.value);
+              }}
+            ></input>
+          </label>
+        </div>
+        <div>BMIは{BMI}です</div>
+      </div>
+    );
+  };
+
+  const rootElement = document.getElementById("app");
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(<App />);
+
+</script>
