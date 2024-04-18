@@ -1,5 +1,6 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
 </head>
 
 <body>
@@ -17,7 +18,7 @@
   const App = () => {
     const [体重kg, set体重] = useState(0);
     const [身長cm, set身長] = useState(0);
-    const 身長m = 身長cm / 100;
+    const 身長m = 身長cm / 100
     const BMI = 体重kg / (身長m ** 2);
     return (
       <div>
